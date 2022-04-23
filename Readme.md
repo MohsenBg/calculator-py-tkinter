@@ -2,6 +2,10 @@
 
 Normal Calculator made with python(tkinter)
 
+
+https://user-images.githubusercontent.com/84536899/164895800-aa5aa133-348c-4c8e-9fb5-78e5e31f6acb.mp4
+
+
 # install
 
 ## windows
