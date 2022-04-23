@@ -28,7 +28,6 @@ btnPercent.config(command=lambda: Percent())
 
 # add Number btn0 btn1 ... btn9
 def addNumber(text: str):
-
     if(mode == "ERROR"):
         return
     finaltext = ""
@@ -209,6 +208,9 @@ def changeMode(modeStatus: str):
 
     elif(modeStatus == "addOperator"):
         mode = "addOperator"
+
+    elif(modeStatus == "result"):
+        mode = "result"
 
     elif(modeStatus == "mustAddOperator"):
         mode = "mustAddOperator"

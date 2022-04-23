@@ -1,5 +1,6 @@
 from tkinter import *
 from PIL import Image, ImageTk
+import pyglet
 import os
 curtrentDir = os.path.dirname(__file__)
 app = Tk()
@@ -14,11 +15,14 @@ photo = ImageTk.PhotoImage(image)
 BackgroundCanvas.create_image(0, 0, image=photo, anchor='nw')
 BackgroundCanvas.place(x=0, y=0)
 # ----------------------------------------------
+fontPath = os.path.join(curtrentDir, "../assets/Fonts/Mukta-Regular.ttf")
+pyglet.font.add_file(fontPath)
 
 
 # Diplay
 
 # -----------------------------------------------
+
 
 def make_label(master, x, y, h, w):
     f = Frame(master, height=h, width=w)
@@ -36,7 +40,7 @@ CaculateDisplay.config(
     text="",
     background="#14171e",
     fg="white",
-    font=("TkDefaultFont", 11),
+    font=("Arial", 11),
     anchor="e"
 )
 
@@ -44,7 +48,7 @@ Dispaly = make_label(
     app, 0, 50, 40, 290)
 
 Dispaly.config(background="#14171e", fg="white",
-               font=("TkDefaultFont", 19), text="0", justify="center", anchor="e")
+               font=("Arial", 19), text="0", justify="center", anchor="e")
 # -------------------------------------------------
 
 
@@ -52,7 +56,6 @@ Dispaly.config(background="#14171e", fg="white",
 def makeNormalBtn(master=app, text="", textColor="white", backgroundColor="#14171e",  fontSize=14, activeforeground="#00FFFF"):
     NormalBtn = Button(
         master,
-
         background=backgroundColor,
         highlightthickness=0,
         bd=0,
@@ -61,7 +64,7 @@ def makeNormalBtn(master=app, text="", textColor="white", backgroundColor="#1417
         activeforeground=activeforeground,
         activebackground=backgroundColor,
         cursor="hand2",
-        font=("TkDefaultFont", fontSize)
+        font=("Mukta", fontSize)
     )
     return NormalBtn
 
@@ -75,14 +78,14 @@ btnAC.place(x=0, y=0)
 btnBackspace.place(x=70, y=-5)
 btnPercent.place(x=140, y=0)
 
-ColumnFrame = Frame(app, width=30, height=240, background="#14171e")
-ColumnFrame.place(x=250, y=170)
-btnDivision = makeNormalBtn(ColumnFrame, "÷", "#1fca70",  fontSize=18)
+ColumnFrame = Frame(app, width=40, height=240, background="#14171e")
+ColumnFrame.place(x=245, y=170)
+btnDivision = makeNormalBtn(ColumnFrame, "÷", "#1fca70",  fontSize=16)
 btnMultiplication = makeNormalBtn(
-    ColumnFrame, "×", "#1fca70",  fontSize=18)
+    ColumnFrame, "×", "#1fca70",  fontSize=16)
 btnSubmission = makeNormalBtn(
-    ColumnFrame, "−", "#1fca70", fontSize=18)
-btnSum = makeNormalBtn(ColumnFrame, "+", "#1fca70", fontSize=18)
+    ColumnFrame, "−", "#1fca70", fontSize=16)
+btnSum = makeNormalBtn(ColumnFrame, "+", "#1fca70", fontSize=16)
 
 
 btnDivision.place(x=0, y=0)
@@ -90,8 +93,8 @@ btnMultiplication.place(x=0, y=67)
 btnSubmission.place(x=0, y=136)
 btnSum.place(x=0, y=205)
 
-ColumnFrame = Frame(app, width=40, height=40, background="#1cc069")
-ColumnFrame.place(x=248, y=441)
+ColumnFrame = Frame(app, width=30, height=30, background="#1cc069")
+ColumnFrame.place(x=243, y=441)
 btnEqual = makeNormalBtn(ColumnFrame, "=",
                          backgroundColor="#1cc069", activeforeground="red", fontSize=19)
 btnEqual.pack(fill=BOTH, expand=True)
