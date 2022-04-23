@@ -1,6 +1,6 @@
 from tkinter import *
 from PIL import Image, ImageTk
-import pyglet
+#from pyglet import font
 import os
 curtrentDir = os.path.dirname(__file__)
 app = Tk()
@@ -15,8 +15,8 @@ photo = ImageTk.PhotoImage(image)
 BackgroundCanvas.create_image(0, 0, image=photo, anchor='nw')
 BackgroundCanvas.place(x=0, y=0)
 # ----------------------------------------------
-fontPath = os.path.join(curtrentDir, "../assets/Fonts/Mukta-Regular.ttf")
-pyglet.font.add_file(fontPath)
+#fontPath = os.path.join(curtrentDir, "../assets/Fonts/Mukta-Regular.ttf")
+# font.add_file(fontPath)
 
 
 # Diplay
@@ -64,7 +64,7 @@ def makeNormalBtn(master=app, text="", textColor="white", backgroundColor="#1417
         activeforeground=activeforeground,
         activebackground=backgroundColor,
         cursor="hand2",
-        font=("Mukta", fontSize)
+        font=("sans-serif", fontSize)
     )
     return NormalBtn
 
@@ -80,24 +80,24 @@ btnPercent.place(x=140, y=0)
 
 ColumnFrame = Frame(app, width=40, height=240, background="#14171e")
 ColumnFrame.place(x=245, y=170)
-btnDivision = makeNormalBtn(ColumnFrame, "÷", "#1fca70",  fontSize=16)
+btnDivision = makeNormalBtn(ColumnFrame, "÷", "#1fca70",  fontSize=18)
 btnMultiplication = makeNormalBtn(
-    ColumnFrame, "×", "#1fca70",  fontSize=16)
+    ColumnFrame, "×", "#1fca70",  fontSize=18)
 btnSubmission = makeNormalBtn(
-    ColumnFrame, "−", "#1fca70", fontSize=16)
-btnSum = makeNormalBtn(ColumnFrame, "+", "#1fca70", fontSize=16)
+    ColumnFrame, "−", "#1fca70", fontSize=18)
+btnSum = makeNormalBtn(ColumnFrame, "+", "#1fca70", fontSize=18)
 
 
 btnDivision.place(x=0, y=0)
-btnMultiplication.place(x=0, y=67)
-btnSubmission.place(x=0, y=136)
-btnSum.place(x=0, y=205)
+btnMultiplication.place(x=0, y=65)
+btnSubmission.place(x=0, y=133)
+btnSum.place(x=0, y=195)
 
-ColumnFrame = Frame(app, width=30, height=30, background="#1cc069")
-ColumnFrame.place(x=243, y=441)
+ColumnFrame = Frame(app, width=35, height=35, background="#1cc069")
+ColumnFrame.place(x=246, y=445)
 btnEqual = makeNormalBtn(ColumnFrame, "=",
-                         backgroundColor="#1cc069", activeforeground="red", fontSize=19)
-btnEqual.pack(fill=BOTH, expand=True)
+                         backgroundColor="#1cc069", activeforeground="red", fontSize=20)
+btnEqual.place(relx=0.5, rely=0.5, anchor="center")
 
 
 numPadFrame = Frame(app, background="#1A1D24", height=250, width=180)
