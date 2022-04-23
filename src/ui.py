@@ -49,11 +49,10 @@ Dispaly.config(background="#14171e", fg="white",
 
 
 # Buttons
-def makeNormalBtn(master=app, text="", textColor="white", backgroundColor="#14171e", width=4, height=8, fontSize=14, activeforeground="#00FFFF"):
+def makeNormalBtn(master=app, text="", textColor="white", backgroundColor="#14171e",  fontSize=14, activeforeground="#00FFFF"):
     NormalBtn = Button(
         master,
-        # padx=width,
-        # pady=height,
+
         background=backgroundColor,
         highlightthickness=0,
         bd=0,
@@ -101,31 +100,31 @@ btnEqual.pack(fill=BOTH, expand=True)
 numPadFrame = Frame(app, background="#1A1D24", height=250, width=180)
 numPadFrame.place(x=30, y=230)
 btn9 = makeNormalBtn(numPadFrame, "9", backgroundColor="#1A1D24",
-                     fontSize=18, width=5, height=3)
+                     fontSize=18)
 btn8 = makeNormalBtn(numPadFrame, "8", backgroundColor="#1A1D24",
-                     fontSize=18, width=5, height=3)
+                     fontSize=18)
 btn7 = makeNormalBtn(numPadFrame, "7", backgroundColor="#1A1D24",
-                     fontSize=18, width=5, height=3)
+                     fontSize=18)
 
 btn6 = makeNormalBtn(numPadFrame, "6", backgroundColor="#1A1D24",
-                     fontSize=18, width=5, height=3)
+                     fontSize=18)
 btn5 = makeNormalBtn(numPadFrame, "5", backgroundColor="#1A1D24",
-                     fontSize=18, width=5, height=3)
+                     fontSize=18)
 btn4 = makeNormalBtn(numPadFrame, "4", backgroundColor="#1A1D24",
-                     fontSize=18, width=5, height=3)
+                     fontSize=18)
 
 btn3 = makeNormalBtn(numPadFrame, "3", backgroundColor="#1A1D24",
-                     fontSize=18, width=5, height=3)
+                     fontSize=18)
 btn2 = makeNormalBtn(numPadFrame, "2", backgroundColor="#1A1D24",
-                     fontSize=18, width=5, height=3)
+                     fontSize=18)
 btn1 = makeNormalBtn(numPadFrame, "1", backgroundColor="#1A1D24",
-                     fontSize=18, width=5, height=3)
+                     fontSize=18)
 btnDot = makeNormalBtn(numPadFrame, ".", backgroundColor="#1A1D24",
-                       fontSize=25, width=5, height=3)
+                       fontSize=25)
 btn0 = makeNormalBtn(numPadFrame, "0", backgroundColor="#1A1D24",
-                     fontSize=18, width=5, height=3)
+                     fontSize=18)
 btnSymmetric = makeNormalBtn(numPadFrame, "+/−", backgroundColor="#1A1D24",
-                             fontSize=18, width=5, height=3)
+                             fontSize=18)
 
 btn9.place(x=140, y=5)
 btn8.place(x=70, y=5)
