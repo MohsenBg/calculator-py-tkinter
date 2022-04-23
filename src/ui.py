@@ -17,22 +17,43 @@ BackgroundCanvas.place(x=0, y=0)
 
 
 # Diplay
-# -----------------------------------------------
-CaculateDisplay = Label(app, width=35, height=2, background="#14171e", fg="white",
-                        font=("Arial", 11), text="", justify="center", anchor="e")
 
-CaculateDisplay.place(x=0, y=10)
-Dispaly = Label(app, width=20, height=2, background="#14171e", fg="white",
-                font=("Arial", 19), text="0", justify="center", anchor="e")
-Dispaly.place(x=0, y=50)
+# -----------------------------------------------
+
+def make_label(master, x, y, h, w):
+    f = Frame(master, height=h, width=w)
+    f.pack_propagate(0)  # don't shrink
+    f.place(x=x, y=y)
+    label = Label(f)
+    label.pack(fill=BOTH, expand=1)
+    return label
+
+
+CaculateDisplay = make_label(
+    app, 0, 0, 40, 290)
+
+CaculateDisplay.config(
+    text="",
+    background="#14171e",
+    fg="white",
+    font=("Arial", 11),
+    anchor="e"
+)
+
+Dispaly = make_label(
+    app, 0, 50, 40, 290)
+
+Dispaly.config(background="#14171e", fg="white",
+               font=("Arial", 19), text="0", justify="center", anchor="e")
 # -------------------------------------------------
 
 
 # Buttons
-def makeNoramlBtn(text="", textColor="white", backgroundColor="#14171e", width=4, height=8, fontSize=14, activeforeground="#00FFFF"):
+def makeNormalBtn(master=app, text="", textColor="white", backgroundColor="#14171e", width=4, height=8, fontSize=14, activeforeground="#00FFFF"):
     NormalBtn = Button(
-        width=width,
-        pady=height,
+        master,
+        # padx=width,
+        # pady=height,
         background=backgroundColor,
         highlightthickness=0,
         bd=0,
@@ -46,67 +67,78 @@ def makeNoramlBtn(text="", textColor="white", backgroundColor="#14171e", width=4
     return NormalBtn
 
 
-btnAC = makeNoramlBtn("AC")
-btnPercent = makeNoramlBtn("%")
-btnBackspace = makeNoramlBtn("←", fontSize=18)
-btnAC.place(x=15, y=170)
-btnBackspace.place(x=80, y=165)
-btnPercent.place(x=150, y=170)
+RowFrame = Frame(app, width=180, height=30, background="#14171e")
+RowFrame.place(x=25, y=175)
+btnAC = makeNormalBtn(RowFrame, "AC")
+btnPercent = makeNormalBtn(RowFrame, "%")
+btnBackspace = makeNormalBtn(RowFrame, "←", fontSize=18)
+btnAC.place(x=0, y=0)
+btnBackspace.place(x=70, y=-5)
+btnPercent.place(x=140, y=0)
+
+ColumnFrame = Frame(app, width=35, height=240, background="#14171e")
+ColumnFrame.place(x=245, y=170)
+btnDivision = makeNormalBtn(ColumnFrame, "÷", "#1fca70",  fontSize=18)
+btnMultiplication = makeNormalBtn(
+    ColumnFrame, "×", "#1fca70",  fontSize=18)
+btnSubmission = makeNormalBtn(
+    ColumnFrame, "−", "#1fca70", fontSize=18)
+btnSum = makeNormalBtn(ColumnFrame, "+", "#1fca70", fontSize=18)
 
 
-btnDivision = makeNoramlBtn("÷", "#1fca70", width=2, fontSize=18)
-btnMultiplication = makeNoramlBtn("×", "#1fca70", width=2, fontSize=18)
-btnSubmission = makeNoramlBtn("−", "#1fca70", width=2, fontSize=18)
-btnSum = makeNoramlBtn("+", "#1fca70", width=2, fontSize=18)
-btnEqual = makeNoramlBtn("=", width=1, height=2,
+btnDivision.place(x=0, y=0)
+btnMultiplication.place(x=0, y=67)
+btnSubmission.place(x=0, y=136)
+btnSum.place(x=0, y=205)
+
+ColumnFrame = Frame(app, width=40, height=40, background="#1cc069")
+ColumnFrame.place(x=244, y=444)
+btnEqual = makeNormalBtn(ColumnFrame, "=",
                          backgroundColor="#1cc069", activeforeground="red", fontSize=19)
-
-btnDivision.place(x=240, y=170)
-btnMultiplication.place(x=240, y=235)
-btnSubmission.place(x=240, y=300)
-btnSum.place(x=240, y=365)
-btnEqual.place(x=245, y=445)
+btnEqual.pack(fill=BOTH, expand=True)
 
 
-btn9 = makeNoramlBtn("9", backgroundColor="#1A1D24",
-                     fontSize=18, width=2, height=3)
-btn8 = makeNoramlBtn("8", backgroundColor="#1A1D24",
-                     fontSize=18, width=2, height=3)
-btn7 = makeNoramlBtn("7", backgroundColor="#1A1D24",
-                     fontSize=18, width=2, height=3)
+numPadFrame = Frame(app, background="#1A1D24", height=250, width=180)
+numPadFrame.place(x=30, y=230)
+btn9 = makeNormalBtn(numPadFrame, "9", backgroundColor="#1A1D24",
+                     fontSize=18, width=5, height=3)
+btn8 = makeNormalBtn(numPadFrame, "8", backgroundColor="#1A1D24",
+                     fontSize=18, width=5, height=3)
+btn7 = makeNormalBtn(numPadFrame, "7", backgroundColor="#1A1D24",
+                     fontSize=18, width=5, height=3)
 
-btn6 = makeNoramlBtn("6", backgroundColor="#1A1D24",
-                     fontSize=18, width=2, height=3)
-btn5 = makeNoramlBtn("5", backgroundColor="#1A1D24",
-                     fontSize=18, width=2, height=3)
-btn4 = makeNoramlBtn("4", backgroundColor="#1A1D24",
-                     fontSize=18, width=2, height=3)
+btn6 = makeNormalBtn(numPadFrame, "6", backgroundColor="#1A1D24",
+                     fontSize=18, width=5, height=3)
+btn5 = makeNormalBtn(numPadFrame, "5", backgroundColor="#1A1D24",
+                     fontSize=18, width=5, height=3)
+btn4 = makeNormalBtn(numPadFrame, "4", backgroundColor="#1A1D24",
+                     fontSize=18, width=5, height=3)
 
-btn3 = makeNoramlBtn("3", backgroundColor="#1A1D24",
-                     fontSize=18, width=2, height=3)
-btn2 = makeNoramlBtn("2", backgroundColor="#1A1D24",
-                     fontSize=18, width=2, height=3)
-btn1 = makeNoramlBtn("1", backgroundColor="#1A1D24",
-                     fontSize=18, width=2, height=3)
-btnDot = makeNoramlBtn(".", backgroundColor="#1A1D24",
-                       fontSize=25, width=2, height=3)
-btn0 = makeNoramlBtn("0", backgroundColor="#1A1D24",
-                     fontSize=18, width=2, height=3)
-btnSymmetric = makeNoramlBtn("+/−", backgroundColor="#1A1D24",
-                             fontSize=18, width=2, height=3)
+btn3 = makeNormalBtn(numPadFrame, "3", backgroundColor="#1A1D24",
+                     fontSize=18, width=5, height=3)
+btn2 = makeNormalBtn(numPadFrame, "2", backgroundColor="#1A1D24",
+                     fontSize=18, width=5, height=3)
+btn1 = makeNormalBtn(numPadFrame, "1", backgroundColor="#1A1D24",
+                     fontSize=18, width=5, height=3)
+btnDot = makeNormalBtn(numPadFrame, ".", backgroundColor="#1A1D24",
+                       fontSize=25, width=5, height=3)
+btn0 = makeNormalBtn(numPadFrame, "0", backgroundColor="#1A1D24",
+                     fontSize=18, width=5, height=3)
+btnSymmetric = makeNormalBtn(numPadFrame, "+/−", backgroundColor="#1A1D24",
+                             fontSize=18, width=5, height=3)
 
-btn9.place(x=160, y=240)
-btn8.place(x=90, y=240)
-btn7.place(x=25, y=240)
+btn9.place(x=140, y=5)
+btn8.place(x=70, y=5)
+btn7.place(x=0, y=5)
 
-btn6.place(x=160, y=310)
-btn5.place(x=90, y=310)
-btn4.place(x=25, y=310)
+btn6.place(x=140, y=70)
+btn5.place(x=70, y=70)
+btn4.place(x=0, y=70)
 
-btn3.place(x=160, y=375)
-btn2.place(x=90, y=375)
-btn1.place(x=25, y=375)
+btn3.place(x=140, y=140)
+btn2.place(x=70, y=140)
+btn1.place(x=0, y=140)
 
-btnSymmetric.place(x=160, y=440)
-btn0.place(x=90, y=440)
-btnDot.place(x=25, y=425)
+btnSymmetric.place(x=130, y=210)
+btn0.place(x=70, y=210)
+btnDot.place(x=0, y=200)
