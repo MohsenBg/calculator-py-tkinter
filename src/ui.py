@@ -36,7 +36,7 @@ CaculateDisplay.config(
     text="",
     background="#14171e",
     fg="white",
-    font=("Arial", 11),
+    font=("TkDefaultFont", 11),
     anchor="e"
 )
 
@@ -44,7 +44,7 @@ Dispaly = make_label(
     app, 0, 50, 40, 290)
 
 Dispaly.config(background="#14171e", fg="white",
-               font=("Arial", 19), text="0", justify="center", anchor="e")
+               font=("TkDefaultFont", 19), text="0", justify="center", anchor="e")
 # -------------------------------------------------
 
 
@@ -61,7 +61,7 @@ def makeNormalBtn(master=app, text="", textColor="white", backgroundColor="#1417
         activeforeground=activeforeground,
         activebackground=backgroundColor,
         cursor="hand2",
-        font=("Arial", fontSize)
+        font=("TkDefaultFont", fontSize)
     )
     return NormalBtn
 
@@ -75,8 +75,8 @@ btnAC.place(x=0, y=0)
 btnBackspace.place(x=70, y=-5)
 btnPercent.place(x=140, y=0)
 
-ColumnFrame = Frame(app, width=35, height=240, background="#14171e")
-ColumnFrame.place(x=245, y=170)
+ColumnFrame = Frame(app, width=30, height=240, background="#14171e")
+ColumnFrame.place(x=250, y=170)
 btnDivision = makeNormalBtn(ColumnFrame, "÷", "#1fca70",  fontSize=18)
 btnMultiplication = makeNormalBtn(
     ColumnFrame, "×", "#1fca70",  fontSize=18)
@@ -91,7 +91,7 @@ btnSubmission.place(x=0, y=136)
 btnSum.place(x=0, y=205)
 
 ColumnFrame = Frame(app, width=40, height=40, background="#1cc069")
-ColumnFrame.place(x=244, y=444)
+ColumnFrame.place(x=248, y=441)
 btnEqual = makeNormalBtn(ColumnFrame, "=",
                          backgroundColor="#1cc069", activeforeground="red", fontSize=19)
 btnEqual.pack(fill=BOTH, expand=True)
